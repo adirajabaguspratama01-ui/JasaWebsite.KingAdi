@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Ultra Premium - King Adi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+body {scroll-behavior:smooth; background:#0d1b2a; color:#fff; overflow-x:hidden;}
+a{text-decoration:none;}
+
+/* Navbar */
+nav{
+  position:fixed; top:0; left:0; width:100%; z-index:1000;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 50px; backdrop-filter: blur(15px);
+  background: rgba(13,27,42,0.4); box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  transition:0.5s;
+}
+nav.scrolled{background: #0a1624; color: #00f0ff;}
+nav .logo{font-size:2em; font-weight:700; color:#00f0ff; text-shadow:0 0 15px #00f0ff;}
+nav ul{display:flex; gap:30px;}
+nav ul li a{color:#fff; font-weight:500; padding:10px 15px; border-radius:10px; transition:0.3s;}
+nav ul li a:hover{background: rgba(0,255,255,0.2); box-shadow:0 0 15px #00f0ff; transform:scale(1.1);}
+
+/* Header */
+header{
+  min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; background: linear-gradient(270deg,#0f3057,#00796b,#0f3057,#00796b);
+  background-size: 1200% 1200%; animation: gradientBG 25s ease infinite;
+  color:#fff; padding:0 20px; position:relative; overflow:hidden;
+}
+@keyframes gradientBG {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+header h1{font-size:4em; margin-bottom:20px; text-shadow:0 0 20px #00f0ff;}
+header p{font-size:1.7em; margin-bottom:40px; text-shadow:0 0 15px #00f0ff;}
+header .typed-text{border-right: 3px solid #00f0ff; padding-right:6px; white-space:nowrap; overflow:hidden; display:inline-block;}
+header a{padding:20px 55px; background:#00f0ff; color:#0a1624; font-weight:700; border-radius:60px; box-shadow:0 0 25px #00f0ff; transition:0.3s; text-transform:uppercase;}
+header a:hover{background:#26c6da; transform:scale(1.15); box-shadow:0 0 40px #00f0ff;}
+#particles-js{position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;}
+
+/* Sections */
+section{padding:100px 20px; position:relative; overflow:hidden; opacity:0; transform:translateY(50px) scale(0.95); transition:1s ease;}
+section.show{opacity:1; transform:translateY(0) scale(1);}
+.container{max-width:1200px; margin:0 auto;}
+h2{text-align:center; font-size:3em; margin-bottom:50px; color:#00f0ff; text-shadow:0 0 15px #00f0ff; position:relative;}
+h2::after{content:''; display:block; width:100px; height:4px; background:#00f0ff; margin:12px auto 0; border-radius:2px;}
+
+/* Promo */
+.promo{background: linear-gradient(135deg,#00796b,#00f0ff); color:#fff; text-align:center; padding:90px 40px; border-radius:35px; box-shadow:0 20px 60px rgba(0,0,0,0.3); margin:60px 0; position:relative; transition:0.5s;}
+.promo:hover{transform: translateY(-12px) scale(1.03); box-shadow:0 25px 70px rgba(0,255,255,0.5);}
+.promo h2{font-size:3em; margin-bottom:25px; text-shadow:0 0 20px #00f0ff;}
+.promo p{font-size:1.4em; margin-bottom:30px;}
+.badge{position:absolute; top:-20px; right:30px; background:#ff1744; color:#fff; padding:18px 35px; border-radius:60px; font-weight:700; font-size:1.3em; box-shadow:0 0 30px #ff1744; animation:badgePulse 1.2s infinite;}
+@keyframes badgePulse{0%{transform:scale(1);}50%{transform:scale(1.2);}100%{transform:scale(1);}}
+
+/* About */
+.about{display:flex; flex-direction:column; align-items:center; gap:30px; text-align:center;}
+.about p{font-size:1.3em; line-height:1.8; max-width:750px; background:rgba(13,27,42,0.9); padding:35px; border-radius:35px; box-shadow:0 20px 60px rgba(0,255,255,0.2);}
+.info-cards{display:flex; flex-wrap:wrap; gap:35px; justify-content:center; margin-top:60px;}
+.card{background:#0a1624; border-radius:35px; padding:40px; flex:1 1 300px; box-shadow:0 0 30px #00f0ff; transition:0.5s; text-align:center; display:flex; flex-direction:column; align-items:center; gap:20px;}
+.card:hover{transform:translateY(-15px) scale(1.1); box-shadow:0 0 50px #00f0ff;}
+.card svg{width:70px; height:70px; fill:#00f0ff; transition: transform 0.7s;}
+.card:hover svg{transform: rotate(360deg) scale(1.3);}
+.card h3{margin-bottom:15px; color:#00f0ff; font-size:1.7em; text-shadow:0 0 10px #00f0ff;}
+.card p{font-size:1.2em; color:#fff;}
+
+/* Pricing */
+.pricing-table{display:flex; flex-wrap:wrap; gap:40px; justify-content:center; margin-top:70px;}
+.price-card{background:#0a1624; color:#fff; flex:1 1 300px; text-align:center; padding:45px; border-radius:35px; box-shadow:0 0 40px #00f0ff; transition:0.5s; position:relative;}
+.price-card:hover{transform:translateY(-15px) scale(1.1); box-shadow:0 0 70px #00f0ff;}
+.price-card h3{font-size:1.8em; margin-bottom:20px; color:#00f0ff;}
+.price-card p{margin-bottom:20px; font-size:1.2em;}
+.price-card a{display:inline-block; margin-top:30px; padding:20px 55px; background:#00f0ff; color:#0a1624; font-weight:700; border-radius:60px; box-shadow:0 0 30px #00f0ff; transition:0.3s;}
+.price-card a:hover{background:#26c6da; transform:scale(1.15); box-shadow:0 0 50px #00f0ff;}
+.price-badge{position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:#ffea00; color:#0a1624; font-weight:700; padding:12px 30px; border-radius:60px; box-shadow:0 0 30px #ffea00;}
+
+/* Contact */
+.contact-btn{text-align:center; margin-top:80px;}
+.contact-btn a{padding:22px 60px; background:#00f0ff; color:#0a1624; border-radius:60px; font-weight:700; font-size:1.4em; box-shadow:0 0 35px #00f0ff; transition:0.3s;}
+.contact-btn a:hover{background:#26c6da; transform:scale(1.15); box-shadow:0 0 60px #00f0ff;}
+
+/* Footer */
+footer{background:#0a1624; color:#fff; text-align:center; padding:40px; font-size:1.2em; margin-top:60px; border-top:5px solid #00f0ff;}
+
+/* Responsive */
+@media(max-width:992px){.info-cards,.pricing-table{flex-direction:column;}}
+@media(max-width:480px){header h1{font-size:3em;} header p{font-size:1.5em;}}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="logo">King Adi</div>
+  <ul>
+    <li><a href="#promo">Promo</a></li>
+    <li><a href="#about">Tentang Saya</a></li>
+    <li><a href="#pricing">Paket</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<header>
+  <canvas id="particles-js"></canvas>
+  <h1>Halo, Saya <span class="typed-text"></span></h1>
+  <p>Pelajar SMP Kelas 2 | Usia 13 Tahun</p>
+  <a href="#contact">Hubungi Saya</a>
+</header>
+
+<section id="promo" class="promo">
+  <div class="badge">HOT!</div>
+  <h2>Promo Spesial Awal!</h2>
+  <p>Dapatkan paket mulai dari Rp20.000 hingga Rp150.000. Promo terbatas, jangan sampai kelewatan!</p>
+</section>
+
+<section id="about">
+  <div class="container about">
+    <h2>Tentang Saya</h2>
+    <p>Saya selalu ingin belajar dan mencoba hal baru, terutama di bidang teknologi dan desain digital. Profesional tapi tetap friendly!</p>
+    <div class="info-cards">
+      <div class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <h3>Pendidikan</h3><p>SMP Kelas 2</p></div>
+      <div class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <h3>Usia</h3><p>13 Tahun</p></div>
+      <div class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        <h3>Keahlian</h3><p>Teknologi, Desain Digital, Problem Solving</p></div>
+      <div class="card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <h3>Hobi</h3><p>Membaca, Coding, Desain Digital</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2>Paket Murah & Premium</h2>
+    <div class="pricing-table">
+      <div class="price-card"><div class="price-badge">Best Deal</div><h3>Paket Basic</h3><p>Proyek mini atau tugas singkat</p><p>Rp20.000</p><a href="https://wa.me/6281234567890" target="_blank">Pesan Sekarang</a></div>
+      <div class="price-card"><h3>Paket Standard</h3><p>Proyek menengah</p><p>Rp75.000</p><a href="https://wa.me/6281234567890" target="_blank">Pesan Sekarang</a></div>
+      <div class="price-card"><h3>Paket Premium</h3><p>Proyek besar, kreatif, dan detail</p><p>Rp150.000</p><a href="https://wa.me/6281234567890" target="_blank">Pesan Sekarang</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-btn">
+    <a href="https://wa.me/6281234567890" target="_blank">Hubungi via WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 King Adi – Semua Hak Dilindungi
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+// Navbar scroll
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled', window.scrollY>50);});
+
+// Scroll fade-in
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add('show');});},{threshold:0.2});
+sections.forEach(sec=>observer.observe(sec));
+
+// Typed text
+const typed=document.querySelector('.typed-text');
+const words=["King Adi","Pelajar SMP","Desainer Digital","Coding Enthusiast"];
+let w=0,c=0,typing=true;
+function type(){if(typing){typed.textContent+=words[w][c];c++;if(c==words[w].length){typing=false;setTimeout(type,1500);return;}}else{typed.textContent=typed.textContent.slice(0,-1);c--; if(c==0){typing=true; w=(w+1)%words.length;}}setTimeout(type, typing?150:50);} type();
+
+// Particles
+particlesJS('particles-js',{
+  "particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#00f0ff"},"shape":{"type":"circle"},"opacity":{"value":0.6,"random":true},"size":{"value":4,"random":true},"line_linked":{"enable":true,"distance":180,"color":"#00f0ff","opacity":0.4,"width":1.5},"move":{"enable":true,"speed":3,"direction":"none","random":true,"straight":false,"out_mode":"out"}},
+  "interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"}}},"retina_detect":true
+});
+</script>
+
+</body>
+</html>
